@@ -5,7 +5,7 @@ const unhandledRejections = require('./lib/unhandled-rejections')
 
 deepEqual.patch(nodeunit)
 
-exports.run = (files, options) => {
+exports.run = (files, options = {}) => {
   return new Promise((resolve, reject) => {
     // Reject on unhandled promise rejections
     const monitor = unhandledRejections.monitor(process, options.rejectionDelay || 100)
